@@ -2,9 +2,7 @@ package main
 
 import (
         "fmt"
-        "math/rand"
         "net"
-        "time"
 )
 
 const (
@@ -28,7 +26,6 @@ func main() {
 
 	defer conn.Close()
 	buffer := make([]byte, 1024)	// Tamaño del buffer (bytes)
-	rand.Seed(time.Now().Unix())
 
 	for {
 		n, addr, err := conn.ReadFromUDP(buffer)	// Lectura del UDP
