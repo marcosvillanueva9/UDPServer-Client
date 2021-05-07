@@ -19,10 +19,10 @@ jobs:
         go-version: 1.15
 
     - name: BuildServer
-      run: go build -v server/...
+      run: go build -v ./server/main.go
       
     - name: BuildClient
-      run: go build -v client/...
+      run: go build -v ./client/main.go
 
     - name: Test
       run: go test -v ./...
