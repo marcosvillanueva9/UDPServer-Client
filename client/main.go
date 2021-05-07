@@ -52,13 +52,13 @@ func main() {
 		}
 
 		buffer := make([]byte, 1024)
-		_, _, err := c.ReadFromUDP(buffer)
+		n, _, err := c.ReadFromUDP(buffer)
 		if err != nil {
 			fmt.Println("Hubo un error leyendo la respuesta del servidor:", err)
 			return
 		}
-		// := string(buffer[0:n])
-		fmt.Print("\r\r")
+
+		fmt.Print(string(buffer[0:n]))
 	}
 }
       
