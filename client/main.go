@@ -31,14 +31,23 @@ func main() {
 	fmt.Println("Tu Address local es", c.LocalAddr().String())		// Solo para tener de Info
 	defer c.Close()
 
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("Ingresa tu nombre")
+	text, _ := reader.ReadString('\n')
+	data := []byte(text)
+	_, err = c.Write(data)
+
 	for {
-		reader := bufio.NewReader(os.Stdin)
-		fmt.Print("Escribi tu mensaje: ")
+		
 		text, _ := reader.ReadString('\n')
 		data := []byte(text)
 		_, err = c.Write(data)
 		if err != nil {
 			fmt.Println("Hubo un error en el mensaje:", err)
+			return
+		}
+		
+		if text == "Exit\n" {
 			return
 		}
 
@@ -48,7 +57,8 @@ func main() {
 			fmt.Println("Hubo un error leyendo la respuesta del servidor:", err)
 			return
 		}
-		fmt.Println(string(buffer[0:n]))
+
+		fmt.Print(string(buffer[0:n]))
 	}
 }
       
