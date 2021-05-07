@@ -52,7 +52,7 @@ func main() {
 		mensaje := string(buffer[0:n-2])	// Capturar mensaje del buffer
 
 		if _, ok := addrs[addr.String()]; !ok {
-			addrs[addr.String()] = []int{0,0}
+			addrs[addr.String()] = [2]int{0,0}
 		}
 
 		if mensaje == "Exit" {
