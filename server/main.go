@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/marcosvillanueva9/UDPServer-Client/server/utils"
+	"./utils"
 )
 
 const (
